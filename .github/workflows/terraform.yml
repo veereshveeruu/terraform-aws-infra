@@ -23,6 +23,13 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-west-2
+        
+    - name: Check workspace contents
+      run: |
+       echo "Listing current working directory"
+       pwd
+       echo "Listing all files"
+       ls -R
 
     - name: Terraform Init
       run: terraform init
