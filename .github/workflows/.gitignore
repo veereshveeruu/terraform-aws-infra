@@ -1,0 +1,16 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+terraform.tfplan
+
+# Ignore terraform provider binaries
+.terraform.lock.hcl
+.terraform/providers/
+
+# AWS credentials or sensitive files
+*.tfvars
+*.pem
+.aws/
+
