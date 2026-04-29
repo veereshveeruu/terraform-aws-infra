@@ -7,7 +7,7 @@ module "vpc" {
 }
 
 module "sg" {
-  source        = "./modules/security_group"
+  source        = "./modules/security_groups"
   project       = "myapp"
   vpc_id        = module.vpc.vpc_id
   allowed_cidrs = ["10.0.1.0/24", "10.0.2.0/24"]
