@@ -16,7 +16,7 @@ module "sg" {
 module "ec2" {
   source            = "./modules/ec2"
   project           = "myapp"
-  subnet_ids        = module.vpc.subnet_ids
+  subnet_ids        = module.vpc.public_subnets
   security_group_id = module.sg.security_group_id
 }
 
