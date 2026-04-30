@@ -37,4 +37,4 @@ jobs:
       run: terraform apply -auto-approve tfplan
 
     - name: List S3 files
-      run: aws s3 ls s3://$(terraform output -raw bucket_name)
+      run: aws s3 ls s3://$(terraform output -raw s3_bucket_name)
