@@ -34,7 +34,12 @@ jobs:
       run: terraform plan -out=tfplan
 
     - name: Terraform Apply
-      run: terraform apply -auto-approve tfplan
+      run: terraform apply tfplan
+
+    - name: Upload file to S3
+      run: |
+        echo "Hello from pipeline" > test.txt
+        aws s3 cp test.txt s3://$(terraform output -raw s3_bucket_name)
 
     - name: List S3 files
       run: aws s3 ls s3://$(terraform output -raw s3_bucket_name)

@@ -20,12 +20,12 @@ module "ec2" {
   security_group_id = module.sg.security_group_id
 }
 
+resource "random_id" "bucket" {
+  byte_length = 4
+}
+
 module "s3" {
   source      = "./modules/s3"
   project     = "myapp"
   bucket_name = "myapp-${random_id.bucket.hex}"
-}
-
-resource "random_id" "bucket" {
-  byte_length = 4
 }
