@@ -1,5 +1,5 @@
 resource "aws_instance" "web" {
-  count         = 2
+  count         = 3
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t3.micro"
   subnet_id     = element(var.subnet_ids, count.index)
